@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "description": "ZeroTouch sample node for the Dynamo workshop, author Xinhua _ Autodesk CTS team",
   "group": "",
-  "keywords": [ "rebar creation", "schedule view", "zero-Touch" ],
+  "keywords": [ "rebar creation", "schedule view", "Shared Parameter","zero-Touch" ],
   "dependencies": [],
   "contents": "",
   "engine_version": "2.12.1.8246",
@@ -19,4 +19,3 @@
   ]
 
 }
-

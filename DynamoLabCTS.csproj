@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10C0FF12-1F02-412A-B63C-B60BFC61C1AA}</ProjectGuid>
+    <ProjectGuid>{4D150E21-745F-42DD-93DC-611B8CE96790}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DynamoLabCTS</RootNamespace>
+    <RootNamespace>DynamoLab</RootNamespace>
     <AssemblyName>DynamoLabCTS</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -160,20 +160,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Revit\Views\ScheduleView\ScheduleView.cs" />
+    <Compile Include="Revit\Elements\Parameter.cs" />
+    <Compile Include="Revit\Elements\RebarCoupler.cs" />
+    <Compile Include="Revit\Elements\StructuralFraming.cs" />
+    <Compile Include="Revit\Elements\StructuralRebar.cs" />
+    <Compile Include="Revit\TroubleShooting\RebarBroken.cs" />
+    <Compile Include="Revit\Views\ScheduleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Revit\Elements\StructuralRebar\StructuralRebar.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DynamoLabCTS__DynamoCustomization.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="pkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DynamoLabCTS_DynamoCustomization.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
