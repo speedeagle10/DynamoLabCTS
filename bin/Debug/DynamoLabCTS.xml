@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DynamoLabCTS</name>
+    </assembly>
+    <members>
+        <member name="T:DynamoLab.Revit.Elements.Parameter">
+            <summary>
+            Utility class that contains methods of Revit Parameters.
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.AddSharedParameters_1Category_ZTN(System.String,System.String,System.String,Revit.Elements.Category,System.String,System.Boolean)">
+            <summary>
+            Add project shared parameters and assign to single category,this methods works for Revit 2021 and later versions.
+            From SDK worked example DoorSwing: DoorSharedParameter.CS
+            </summary>
+            <param name="paraName">New defined shared Parameter Name.</param>
+            <param name="groupName">The shared parameter group which is defined at Edit Shared Parameters dialog.</param>
+            <param name="paraType">Type of Parameter choosen from Parameter Properties dialog, for example text or int or YesNo.</param>
+            <param name="dynamoCategory">Category of the shared parameter applied to, for example Structural Columns, Doors.</param>
+            <param name="builtInParaGroupName">Information from Group Parameter Under,built-in parameter groups supported by Autodesk Revit, for example PG_TEXT, PG_IDENTITY_DATA.</param>
+            <param name="instanceOrType">ture means family instance parameter, false means family type parameter.</param>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.AddSharedParametersToCategoryList_ZTN(System.String,System.String,System.String,System.Collections.Generic.List{Revit.Elements.Category},System.String,System.Boolean)">
+            <summary>
+            Add shared parameters needed in this sample, ,this methods works for Revit 2021 and later versions.
+            From SDK worked example DoorSwing: DoorSharedParameter.CS
+            </summary>
+            <param name="paraName">New defined shared Parameter Name.</param>
+            <param name="groupName">The shared parameter group which is defined at Edit Shared Parameters dialog.</param>
+            <param name="paraType">Type of Parameter choosen from Parameter Properties dialog, for example text or int or YesNo.</param>
+            <param name="dynamoCategoryList">Category of the shared parameter applied to, for example Structural Columns, Doors.</param>
+            <param name="builtInParaGroupName">Information from Group Parameter Under,built-in parameter groups supported by Autodesk Revit, for example PG_TEXT, PG_IDENTITY_DATA.</param>
+            <param name="instanceOrType">ture means family instance parameter, false means family type parameter.</param>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.AccessOrCreateSharedParameterFile(Autodesk.Revit.ApplicationServices.Application)">
+            <summary>
+            Access an existing or create a new shared parameters file.
+            </summary>
+            <param name="app">Revit Application.</param>
+            <returns>the shared parameters file.</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.AlreadyAddedSharedParameter(Autodesk.Revit.DB.Document,System.String,Autodesk.Revit.DB.BuiltInCategory)">
+            <summary>
+            Has the specific document shared parameter already been added ago?
+            </summary>
+            <param name="doc">Revit project in which the shared parameter will be added.</param>
+            <param name="paraName">the name of the shared parameter.</param>
+            <param name="boundCategory">Which category the parameter will bind to</param>
+            <returns>Returns true if already added ago else returns false.</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.BuiltInParameterGroup_ZTN">
+            <summary>
+            An enumerated type listing all of the built-in parameter groups supported by Autodesk Revit. 
+            such as ["PG_GRAPHICS", "PG_IDENTITY_DATA", "PG_CONSTRAINTS"] 
+            </summary>
+            <returns name="BuiltInParameterGroup">BuiltInParameterGroup list</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.BuiltInParameterGroupAccordingToName_ZTN(System.String)">
+            <summary>
+            An enumerated type listing all of the built-in parameter groups supported by Autodesk Revit. 
+            such as ["PG_GRAPHICS", "PG_IDENTITY_DATA", "PG_CONSTRAINTS"] 
+            </summary>
+            <returns name="BuiltInParameterGroup">BuiltInParameterGroup list</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.ForgeTypeIdDict_ZTN">
+            <summary>
+            Revit 2021 deprecated the UnitType property and replaced it with the GetSpecTypeId method.
+            Revit 2022 deprecated the ParameterType property and the GetSpecTypeId method, replacing them both with the GetDataType method.
+            </summary>
+            <returns name="SpecTypeIdProperty Name">SpecTypeId Properties Name</returns> 
+            <returns name="forgeTypeId">Special SpecTypeId Properties, like SpecTypeId.String.Text, or SpecTypeId.Boolean.YesNo</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.Parameter.SpecTypeId_ZTN">
+            <summary>
+            Revit 2021 deprecated the UnitType property and replaced it with the GetSpecTypeId method.
+            Revit 2022 deprecated the ParameterType property and the GetSpecTypeId method, replacing them both with the GetDataType method.
+            </summary>
+            <returns name="SpecTypeIdProperty Name">SpecTypeId Properties Name</returns> 
+            <returns name="forgeTypeId">Special SpecTypeId Properties, like SpecTypeId.String.Text, or SpecTypeId.Boolean.YesNo</returns> 
+        </member>
+        <member name="T:DynamoLab.Revit.Elements.RebarCoupler">
+            <summary>
+            Class for RebarCoupler
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.RebarCoupler.RebarCouplerBetween2Rebars(System.Collections.Generic.List{Revit.Elements.Element})">
+            <summary>
+            Creates a new instance of a Rebar Coupler element within two Rebar.
+            </summary>
+            <param name="dynamoRebarList"> List contains 2 rebars elements or List contains 2 rebar sets select at the Revit model.</param>
+            <returns name="RebarCoupler"> New created instance of a Rebar Coupler element within the project. </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.RebarCoupler.RebarCouplerCap(Revit.Elements.Element)">
+            <summary>
+            Use a coupler to cap the other end of the first bar.
+            </summary>
+            <param name="dynamoRebar"> rebar or rebar set select at the Revit model.</param>
+            <returns name="RebarCoupler"> New created instance of a Rebar Coupler element at the end of the rebar. </returns> 
+        </member>
+        <member name="T:DynamoLab.Revit.Elements.StructuralFraming">
+            <summary>
+            Utility class that contains methods of StructuralFraming: Column, Beam, Bracing.
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralFraming.GetLocationCurve2022(Revit.Elements.Element)">
+            <summary>
+            get the Structural framing _ column centrial line, this method only works for Revit 2022 and former versions. After the retire of 
+            GetAnalyticalModel from Revit 2023, this method does not work anymore
+            </summary>
+            <param name="dynamoColumn"> select structural framing _ column in Revit </param>
+            <returns name="Curve"> the curve of the column.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralFraming.StructuralColumnLength(Revit.Elements.Element)">
+            <summary>
+            Structural framing _ column length
+            </summary>
+            <param name="dynamoColumn"> select structural framing _ column in Revit </param>
+            <returns name="Column Length"> the length of the column.</returns> 
+        </member>
+        <member name="T:DynamoLab.Revit.Elements.StructuralRebar">
+            <summary>
+            Utility class that contains methods of reinforment rebar creation.
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_hostObject">
+            <summary>
+            the family instance to places rebar on
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarBarTypes">
+            <summary>
+            a set to store all the rebar types
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarHookTypes">
+            <summary>
+            a list to store all the hook types
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarBarTypeNames">
+            <summary>
+            a set to store all the rebar types name
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarHookTypeNames">
+            <summary>
+            a list to store all the hook types name
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarBarTypes">
+            <summary>
+            Show all the rebar types in revit
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarHookTypes">
+            <summary>
+            Show all the rebar hook types in revit
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarBarTypeNames">
+            <summary>
+            Show all the rebar types' name in revit
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarHookTypeNames">
+            <summary>
+            Show all the rebar hook types' name in revit
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarStyles">
+            <summary>
+            a list to store all the Rebar Style
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarStyles">
+            <summary>
+            Show all the rebar style in revit
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarHookOrientations">
+            <summary>
+            a list to store all the Rebar Hook Orientation
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarHookOrientations">
+            <summary>
+            Show all the rebar Hook Orientation in revit
+            </summary>
+        </member>
+        <member name="F:DynamoLab.Revit.Elements.StructuralRebar.m_rebarShapes">
+            <summary>
+            a list to store all the Rebar Shape
+            </summary>
+        </member>
+        <member name="P:DynamoLab.Revit.Elements.StructuralRebar.RebarShapes">
+            <summary>
+            Show all the rebar shape in revit
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarInfor">
+            <summary>
+            The constructor of RebarBarType,RebarHookType
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.CreateRebar_ZTN(Revit.Elements.Element,Autodesk.Revit.DB.Structure.RebarBarType,Autodesk.Revit.DB.Structure.RebarHookType)">
+            <summary>
+            A wrap fuction which used to create the reinforcement.
+            </summary>
+            <param name="columnDynamo">The host element of the rebar</param>
+            <param name="barType">The element of RebarBarType</param>
+            <param name="hookType">The element of RebarHookType</param>
+            <returns name="Rebar">new created Rebar</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.CreateRebarFromCurve(Autodesk.Revit.DB.Structure.RebarStyle,Autodesk.Revit.DB.Structure.RebarBarType,Autodesk.Revit.DB.Structure.RebarHookType,Autodesk.Revit.DB.Structure.RebarHookType,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector,System.Collections.Generic.IList{Autodesk.DesignScript.Geometry.Curve},Autodesk.Revit.DB.Structure.RebarHookOrientation,Autodesk.Revit.DB.Structure.RebarHookOrientation,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of a shape driven Rebar element within the project.
+            </summary>
+            <param name="style">Type: Autodesk.Revit.DB.Structure RebarBarType, 
+            The usage of the bar, "Autodesk.Revit.DB.Structure.RebarStyle.Standard" or "stirrup/tie"</param>
+            <param name="barType">A RebarBarType element that defines bar diameter, bend radius and material of the rebar.</param>
+            <param name="startHookType">A RebarHookType element that defines the hook for the start of the bar. 
+            If this parameter is a null reference ( Nothing in Visual Basic) , it means to create a rebar with no hook.</param>
+            <param name="endHookType">A RebarHookType element that defines the hook for the end of the bar. 
+            If this parameter is a null reference ( Nothing in Visual Basic) , it means to create a rebar with no hook.</param>
+            <param name="dynamoHost">The element to which the rebar belongs. The element must support rebar hosting.</param>
+            <param name="normDynamo">The normal to the plane that the rebar curves lie on.</param>
+            <param name="curvesDynamo">An array of curves that define the shape of the rebar curves. They must belong to 
+            the plane defined by the normal and origin. Bends and hooks should not be included in the array of curves..</param>
+            <param name="startHookOrient">Defines the orientation of the hook plane at the start of the rebar with respect to 
+            the orientation of the first curve and the plane normal,RebarHookOrientation.Right.</param>
+            <param name="endHookOrient">Defines the orientation of the hook plane at the end of the rebar with respect to the 
+            orientation of the last curve and the plane normal,RebarHookOrientation.Left.</param>
+            <param name="useExistingShapeIfPossible">Attempts to assign a RebarShape from those existing in the document. 
+            If no shape matches, NewRebar returns or creates a new shape, according to the parameter createNewShape.</param>
+            <param name="createNewShape">Creates a shape in the document to match the curves, hooks, and style specified, 
+            and assigns it to the new rebar instance.</param>
+            <returns name="Rebar">new created Rebar</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.CreateRebarFromShape(Autodesk.Revit.DB.Structure.RebarShape,Autodesk.Revit.DB.Structure.RebarBarType,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Vector,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            Creates a new shape driven Rebar, as an instance of a RebarShape.
+            </summary>
+            <param name="rebarShape">A RebarShape element that defines the shape of the rebar.</param>
+            <param name="barType">A RebarBarType element that defines bar diameter, bend radius and material of the rebar.</param>
+            <param name="dynamoHost">The element to which the rebar belongs. The element must support rebar hosting.</param>
+            <param name="originDynamo">The lower-left corner of the shape's bounding box will be placed at this point in the project.</param>
+            <param name="xVecDynamo">The x-axis in the shape definition will be mapped to this direction in the project.</param>
+            <param name="yVecDynamo">The y-axis in the shape definition will be mapped to this direction in the project.</param>
+            <returns name="Rebar">new created Rebar</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.CreateRebarFromCurveAndShape(Autodesk.Revit.DB.Structure.RebarShape,Autodesk.Revit.DB.Structure.RebarBarType,Autodesk.Revit.DB.Structure.RebarHookType,Autodesk.Revit.DB.Structure.RebarHookType,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector,System.Collections.Generic.IList{Autodesk.DesignScript.Geometry.Curve},Autodesk.Revit.DB.Structure.RebarHookOrientation,Autodesk.Revit.DB.Structure.RebarHookOrientation)">
+            <summary>
+            Creates a new instance of a shape driven Rebar element within the project.
+            The instance will have the default shape parameters from the RebarShape. 
+            If the RebarShapeDefinesHooks flag in ReinforcementSettings has been set to true, then both the curves and hooks must match the RebarShape definition. 
+            Otherwise, the hooks can be different than the defaults specified in the RebarShape
+            </summary>
+            <param name="rebarShape">A RebarShape element that defines the shape of the rebar. A RebarShape element matches curves and hooks. 
+            A RebarShape element provides RebarStyle of the rebar.</param>
+            <param name="barType">A RebarBarType element that defines bar diameter, bend radius and material of the rebar.</param>
+            <param name="startHookType">A RebarHookType element that defines the hook for the start of the bar. 
+            If this parameter is a null reference ( Nothing in Visual Basic) , it means to create a rebar with no hook.</param>
+            <param name="endHookType">A RebarHookType element that defines the hook for the end of the bar. 
+            If this parameter is a null reference ( Nothing in Visual Basic) , it means to create a rebar with no hook.</param>
+            <param name="dynamoHost">The element to which the rebar belongs. The element must support rebar hosting.</param>
+            <param name="normDynamo">The normal to the plane that the rebar curves lie on.</param>
+            <param name="curvesDynamo">An array of curves that define the shape of the rebar curves. They must belong to 
+            the plane defined by the normal and origin. Bends and hooks should not be included in the array of curves..</param>
+            <param name="startHookOrient">Defines the orientation of the hook plane at the start of the rebar with respect to 
+            the orientation of the first curve and the plane normal,RebarHookOrientation.Right.</param>
+            <param name="endHookOrient">Defines the orientation of the hook plane at the end of the rebar with respect to the 
+            orientation of the last curve and the plane normal,RebarHookOrientation.Left.</param>
+            <returns name="Rebar">new created Rebar</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarProperties_ZTN(Revit.Elements.Element)">
+            <summary>
+            Get selected rebar properties
+            </summary>
+            <returns name="RebarShape"> Returns the RebarShape element that defines the shape of the rebar.</returns> 
+            <returns name="RebarShapeName"> Returns the RebarShape element's name</returns> 
+            <returns name="RebarStyle"> Whether the shape represents a standard bar or a stirrup.</returns> 
+            <returns name="RebarBarType"> Returns the rebar element's type.</returns> 
+            <returns name="RebarBarTypeName"> Returns the rebar element's type name</returns> 
+            <returns name="StartRebarHookType">	Get the RebarHookType at the start of the rebar.</returns> 
+            <returns name="StartRebarHookTypeName"> Get the RebarHookType'name at the start of the rebar</returns> 
+            <returns name="EndRebarHookType"> Get the RebarHookType at the end of the rebar</returns> 
+            <returns name="EndRebarHookTypeName"> Get the RebarHookType'name at the end of the rebar</returns> 
+            <returns name="RebarHostElement">	get rebar host elment, for example structural column or structural beam.</returns> 
+            <returns name="Normal"> get the center line curves of the rebar elements. Note: for rebar set, use normal vector from GetRebarSetInformation</returns> 
+            <returns name="CurveList"> get the center line curves of the rebar elements.</returns> 
+            <returns name="StartRebarHookOrientation"> Returns the orientation of the hook plane at the start of the rebar 
+            with respect to the orientation of the first or the last curve and the plane normal.</returns> 
+            <returns name="EndRebarHookOrientation"> Returns the orientation of the hook plane at the end of the rebar 
+            with respect to the orientation of the first or the last curve and the plane normal.</returns> 
+            <returns name="MajorSegmentIndex"> The normal to the plane that the rebar curves lie on.</returns> 
+            <returns name="FreeFormOrShapeDriven"> Returns true if the rebar is free form and false if shape driven.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarTypeProperties_ZTN(Revit.Elements.Element)">
+            <summary>
+            Get type properties of the selected rebar element
+            </summary>
+            <param name="dynamoRebar">Select Rebar instance in Revit</param>
+            <returns>Offset</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarShapes(Autodesk.Revit.DB.Document)">
+            <summary>
+            get all instances of Rebar Shape, which defines the shape of a rebar
+            </summary>
+            <param name="doc">Get application and document objects</param>
+            <returns>true if some rebar shapes can be gotton, otherwise false</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarShapeName(Autodesk.Revit.DB.Structure.RebarShape)">
+            <summary>
+            get all instances of Rebar Shape's name based on the rebar shape
+            </summary>
+            <param name="rebarShape">instance of a Rebar Shape, which defines the shape of a rebar</param>
+            <returns>rebar shape's name</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarHost_ZTN(Revit.Elements.Element)">
+            <summary>
+            A wrap fuction which used to retrieve host element of the selected rebar.
+            </summary>
+            <param name="dynamoRebar">select rebar element in Revit</param>
+            <returns name="Rebar Host Element">The host element of the rebar</returns> 
+            <returns></returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarCentralLineCurves_ZTN(Revit.Elements.Element)">
+            <summary>
+            Get A chain of curves representing the centerline of the selected rebar element
+            </summary>
+            <param name="dynamoRebar">Select Rebar element in Revit</param>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarShape_ZTN(Revit.Elements.Element)">
+            <summary>
+            Get rebar shape name in Revit API
+            </summary>
+            <returns name="rebarShapName">corresponding rebar shape name</returns> 
+            <returns name="rebarShape">corresponding rebar shape</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.FreeFormOrShapeDriven_ZTN(Revit.Elements.Element)">
+            <summary>
+            Returns true if the rebar is free form and false if shape driven.
+            </summary>
+            <param name="dynamoRebar">Select Rebar element in Revit</param>
+            <returns name="Free Form">Returns true if the rebar is free form and false if shape driven.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetLayoutAsMaximumSpacing(Revit.Elements.Element,System.Double,System.Double,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the Layout Rule property of rebar set to SetLayoutAsMaximumSpacing
+            </summary>
+            <param name="dynamoRebar"> selected Rebar element to be replicated </param>
+            <param name="spacing"> The maximum spacing between rebar in rebar set </param>
+            <param name="arrayLength"> The distribution length of rebar set </param>
+            <param name="barsOnNormalSide"> Identifies if the bars of the rebar set are on the same side of the rebar plane indicated by the normal </param>
+            <param name="includeFirstBar"> Identifies if the first bar in rebar set is shown </param>
+            <param name="includeLastBar"> Identifies if the last bar in rebar set is shown </param>
+            <returns name="Rebar Set"> the new created rebar layout.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetLayoutAsMinimumClearSpacing(Revit.Elements.Element,System.Double,System.Double,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the Layout Rule property of rebar set to MinimumClearSpacing
+            </summary>
+            <param name="dynamoRebar"> selected Rebar element to be replicated </param>
+            <param name="spacing"> The maximum spacing between rebar in rebar set </param>
+            <param name="arrayLength"> The distribution length of rebar set </param>
+            <param name="barsOnNormalSide"> Identifies if the bars of the rebar set are on the same side of the rebar plane indicated by the normal </param>
+            <param name="includeFirstBar"> Identifies if the first bar in rebar set is shown </param>
+            <param name="includeLastBar"> Identifies if the last bar in rebar set is shown </param>
+            <returns name="Rebar Set"> the new created rebar layout.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetLayoutAsFixedNumber(Revit.Elements.Element,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the Layout Rule property of rebar set to FixedNumber.
+            </summary>
+            <param name="dynamoRebar"> selected Rebar element to be replicated </param>
+            <param name="numberOfBarPositions"> The number of bar positions in rebar set </param>
+            <param name="arrayLength"> The distribution length of rebar set </param>
+            <param name="barsOnNormalSide"> Identifies if the bars of the rebar set are on the same side of the rebar plane indicated by the normal </param>
+            <param name="includeFirstBar"> Identifies if the first bar in rebar set is shown </param>
+            <param name="includeLastBar"> Identifies if the last bar in rebar set is shown </param>
+            <returns name="Rebar Set"> the new created rebar layout.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetLayoutAsNumberWithSpacing(Revit.Elements.Element,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the Layout Rule property of rebar set to NumberWithSpacing
+            </summary>
+            <param name="dynamoRebar"> selected Rebar element to be replicated </param>
+            <param name="numberOfBarPositions"> The number of bar positions in rebar set </param>
+            <param name="spacing"> The maximum spacing between rebar in rebar set </param>
+            <param name="barsOnNormalSide"> Identifies if the bars of the rebar set are on the same side of the rebar plane indicated by the normal </param>
+            <param name="includeFirstBar"> Identifies if the first bar in rebar set is shown </param>
+            <param name="includeLastBar"> Identifies if the last bar in rebar set is shown </param>
+            <returns name="Rebar Set"> the new created rebar layout.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetLayoutAsSingle(Revit.Elements.Element)">
+            <summary>
+            Sets the Layout Rule property of rebar set to Single
+            </summary>
+            <param name="dynamoRebar"> selected Rebar element to be replicated </param>
+            <returns name="Rebar Set"> the new created rebar layout.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.SetRebarSpaceAndNumber(Autodesk.Revit.DB.Structure.Rebar,System.Int32,System.Double)">
+            <summary>
+            The helper function to changed rebar number and spacing properties
+            </summary>
+            <param name="bar">The rebar instance which need to modify</param>
+            <param name="number">The rebar number want to set</param>
+            <param name="spacing">The spacing want to set</param>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.CollectAllViews">
+            <summary>
+            Select all views in the Revit model.
+            </summary>
+            <returns name="Views"> retrun views in the model.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetViewAccordingToName(System.String)">
+            <summary>
+            retrun view according to the provided viewName.
+            </summary>
+            <param name="viewName"> view name in string </param>
+            <returns name="Views"> retrun view according to the provided viewName.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.ShowRebarInView(Revit.Elements.Element,Revit.Elements.Views.View)">
+            <summary>
+            Edit rebar visibility setting at the view.
+            </summary>
+            <param name="dynamoRebar"> the selected rebar to Edit visibility </param>
+            <param name="dynamoView"> make the rebar visible at this view </param>
+            <returns name="Rebar"> retrun view according to the provided viewName.</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.ShowRebar3d(Autodesk.Revit.DB.Structure.Rebar)">
+            <summary>
+            Show the given rebar as solid in 3d view.
+            </summary>
+            <param name="rebar">Rebar to show in 3d view as solid</param>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetHookTypes(Autodesk.Revit.DB.Document)">
+            <summary>
+            get all the hook types in current project, and store in m_rebarHookTypes data
+            </summary>
+            <param name="doc">Get application and document objects</param>
+            <returns>true if some hook types can be gotton, otherwise false</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarTypes(Autodesk.Revit.DB.Document)">
+            <summary>
+            get all the rebar types in current project, and store in m_rebarBarTypes data
+            </summary>
+            <param name="doc">Get application and document objects</param>
+            <returns>true if some rebar types can be gotton, otherwise false</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarStyle_ZTN">
+            <summary>
+            get all the rebar style in current project, and store in m_rebarStyles data
+            </summary>
+            <returns>true if some rebar styles can be gotton, otherwise false</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.GetRebarHookOrientation_ZTN">
+            <summary>
+            get all the rebar Hook Orientation in current project, and store in m_rebarHookOrientations data
+            </summary>
+            <returns>true if some rebar styles can be gotton, otherwise false</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Elements.StructuralRebar.OverrideHookLengths(Revit.Elements.Element,System.Int32)">
+            <summary>
+            Override rebar Hook Lengths (family instance parameter), 0 means uncheck, 1 means check
+            </summary>
+            <param name="dynamoRebar"> select structural rebar in Revit </param>
+            <param name="newValue"> Override rebar Hook Lengths option, 0 means uncheck, 1 means check </param>
+            <returns name="Rebar"> updated Rebar with new parameter value.</returns> 
+        </member>
+        <member name="T:DynamoLab.Revit.TroubleShooting.RebarBroken">
+            <summary>
+            Class for troubleshooting
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.Split1StraightRebarByParameter(Revit.Elements.Element,System.Double)">
+            <summary>
+            Break rebar at parameter for rebar coupler placement
+            </summary>
+            <param name="dynamoRebar"> rebar select at the Revit model.</param>
+            <param name="splitPara"> parameter at which to split curve.</param>
+            <returns name="Rebar">new created Rebar</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.GetRebarSetInformation(Revit.Elements.Element)">
+            <summary>
+            Break rebar set at parameter for rebar coupler placement
+            </summary>
+            <param name="dynamoRebarSet"> rebar set select at the Revit model.</param>
+            <returns name="LayoutRule"> Identifies the layout rule of rebar set.Could be Single, Fix Number, Maximum spacing, number with spacing, minimum clear spacing </returns> 
+            <returns name="DistributionType"> The type of rebar distribution(also known as Rebar Set Type).The possible values of this property are:Uniform and VaryingLength </returns> 
+            <returns name="Number of RebarPosition"> The number of positions is equal to the number of actual bars (the Quantity), plus the number of bars that are excluded. </returns> 
+            <returns name="RebarQuantity"> Identifies the number of bars in rebar set. Quantity is equal to NumberOfBarPositions if all the bars are included. 
+            If any bars are excluded, they are not counted in the Quantity.</returns> 
+            <returns name="ArrayLength"> Identifies the distribute length of rebar set, works for Fix Number, Maximum spacing,minimum clear spacing. </returns> 
+            <returns name="RebarSetSpacing"> spacing parameter of rebar set, could be spacing for  </returns> 
+            <returns name="RebarSetMaxSpacing"> Identifies the maximum spacing between rebar in rebar set. </returns> 
+            <returns name="IncludeFirstBar"> Identifies if the first bar in rebar set is shown. </returns> 
+            <returns name="IncludeLastBar"> Identifies if the last bar in rebar set is shown. </returns> 
+            <returns name="DynamoNormal"> A unit-length vector normal to the plane of the rebar. Note: for single rebar, use normal from GetRebarProperties_ZTN </returns> 
+            <returns name="RebarsOnNormalSide"> Identifies if the bars of the rebar set are on the same side of the rebar plane indicated by the normal.
+            True if the bars of rebar set are on the same side of the rebar plane indicated by the normal, and false if the bars are on the opposite side. </returns>
+            <returns name="FirstCurves"> get the curve behind the first rebar shape of the rebar set </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.GetMajorSetmentId(Autodesk.Revit.DB.Structure.RebarShape)">
+            <summary>
+            Index of a major segment of the rebar
+            </summary>
+            <param name="rebarShape"> RebarShape specifies the shape type for a Rebar instance..</param>
+            <returns name="RebarMajorSegmentIndex"> Index of a segment that can be considered the most important. Revit attempts to preserve 
+            the orientation of this segment when a Rebar instance changes its RebarShape to one with a different number of segments. </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.GetRebarCurvePlaneNormal(System.Collections.Generic.List{Autodesk.Revit.DB.Curve})">
+            <summary>
+            The normal to the plane that the rebar curves lie on, Assuming 'curve' is your Curve object and it's not a straight line
+            </summary>
+            <param name="curves"> Curve from Rebar Line.</param>
+            <returns name="Normal Vector"> The normal to the plane that the rebar curves lie on </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.GetStraightLinePlaneNormal(Autodesk.Revit.DB.Curve)">
+            <summary>
+            The normal to the plane that the rebar curves lie on, Assuming 'curve' is your Curve object and it's a straight line
+            </summary>
+            <param name="curve"> Curve from Rebar line.</param>
+            <returns name="Normal Vector"> The normal to the plane that the rebar curves lie on </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.GetRebarPlaneNormal(Autodesk.Revit.DB.Structure.Rebar)">
+            <summary>
+            The normal to the plane that the rebar curves lie on, Assuming 'curve' is your Curve object and it's not a straight line
+            </summary>
+            <param name="rebar"> Rebar generated in Revit.</param>
+            <returns name="Normal Vector"> The normal to the plane that the rebar curves lie on </returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.SplitCurveByParameterArray(Autodesk.Revit.DB.Curve,System.Double)">
+            <summary>
+            Split curve at parameter
+            </summary>
+            <param name="revitCurve"> Curve from Revit.</param>
+            <param name="splitParam"> split parameter for the curve.</param>
+            <returns name="Curves">new created curves</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.SplitCurveByParameterList(Autodesk.Revit.DB.Curve,System.Double)">
+            <summary>
+            Split curve at parameter
+            </summary>
+            <param name="revitCurve"> Curve from Revit.</param>
+            <param name="splitParam"> split parameter for the curve.</param>
+            <returns name="Curves">new created curves</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.TroubleShooting.RebarBroken.SplitCurveByParameterDynamo(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+            <summary>
+            Split curve at parameter
+            </summary>
+            <param name="dynamoCurve"> Curve from Dynamo.</param>
+            <param name="splitParam"> split parameter for the curve.</param>
+            <returns name="Curves">new created curves</returns> 
+        </member>
+        <member name="T:DynamoLab.Revit.Views.ScheduleView">
+            <summary>
+            Utility class that contains methods of view schedule creation and schedule sheet instance creation.
+            </summary>
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.CreateSchedules_ZTN(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Create a view schedule of ViewSchedule category and add schedule field, filter and sorting/grouping field to it.
+            </summary>
+            <param name="categoryName">Name of the Element Category.</param>
+            <param name="scheduleName">Name of the New created schedule.</param>
+            <param name="fieldNames">Name of the New created schedule.</param>
+            <returns name="Schedule">new created schedule(s) with selected Field</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.Category2BuiltInCategory_ZTN(Revit.Elements.Category)">
+            <summary>
+            map from Dynamo Category to BuildinCategory.
+            </summary>
+            <param name="category">Dynamo Category.</param>
+            <returns name="BuiltInCategory">BuiltIn Category</returns> 
+            <returns name="BuiltInCategory Name">BuiltIn Category name</returns>
+            <returns name="Category Name">BuiltIn Category name</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.CreateSchedules_IncludeElementsInLinks_ZTN(Revit.Elements.Category,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Create a view schedule of ViewSchedule category and add schedule field, filter and sorting/grouping field to it.
+            </summary>
+            <param name="category">Schedule Category.</param>
+            <param name="scheduleName">Name of the New created schedule.</param>
+            <param name="fieldNames">Name of the New created schedule.</param>
+            <param name="includeElementsInLinks">Check the option Include Elements In Links.</param>
+            <returns name="Schedule">new created schedule(s) with selected Field</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.SetScheduleHeader_ZTN(Revit.Elements.Views.ScheduleView,System.String)">
+            <summary>
+            Change Schedule header to a new name.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="newHeaderName">Name of the New created schedule.</param>
+            <returns name="Schedule">schedule(s) with new header</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.AddFilter_ZTN(Revit.Elements.Views.ScheduleView,System.String,Autodesk.Revit.DB.ScheduleFilterType,System.String)">
+            <summary>
+            Add filter to selected schedule.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="fieldName">Name of the scheduled field.</param>
+            <param name="filterType">FilterType of the scheduled field.</param>
+            <param name="filterInformation">filter information of the scheduled field.</param>
+            <returns name="Schedule">schedule(s) with new header</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.SortSchedule_ZTN(Revit.Elements.Views.ScheduleView,System.String,System.Boolean)">
+            <summary>
+            sort selected field at selected schedule.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="fieldName">Name of the scheduled field.</param>
+            <param name="ascendingOrDescending">choose sort option: true means Ascending, false means Descending.</param>
+            <returns name="Schedule">schedule(s) with new header</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.OverrideColumnHearder_ZTN(Revit.Elements.Views.ScheduleView,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            change field heading at selected schedule.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="fieldNameList">Name of the scheduled field.</param>
+            <param name="newFieldNameList"> new Name of the scheduled field.</param>
+            <returns name="Schedule">schedule(s) with new header</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.HideColumn_ZTN(Revit.Elements.Views.ScheduleView,System.String)">
+            <summary>
+            Using the ScheduleField.IsHidden property to hide selected field.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="fieldName">Name of the scheduled field.</param>
+            <returns name="Schedule">schedule(s) with new header</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.ScheduleFilterType_ZTN">
+            <summary>
+            Display all available ScheduleFilterType, you can choose according to Index. 
+            Possible Error message: The filter value is not valid for the field and filter type.
+            </summary>
+            <returns name="ScheduleFilterType">schedule(s) filter type list</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.ScheduleFieldMap_ZTN(Revit.Elements.Views.ScheduleView,System.String)">
+            <summary>
+            Using the ScheduleField.IsHidden property to hide selected field.
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <param name="fieldName">Name of the scheduled field.</param>
+            <returns name="SscheduleFieldParameterID">The ID of the parameter displayed by the field.</returns> 
+            <returns name="ScheduleFieldID">The ID of the field in the containing ScheduleDefinition</returns>
+            <returns name="ScheduleFieldIndex">The index of the field in the containing ScheduleDefinition.</returns>
+            <returns name="ScheduleColumnHeading">The column heading text.</returns>
+            <returns name="ScheduleFieldType">The type of data displayed by the field.</returns>
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.SchedulableField_ZTN(Revit.Elements.Views.ScheduleView)">
+            <summary>
+            Return all schedulable fields of the selected Schedule. 
+            Remove  shared or project parameter from field
+            </summary>
+            <returns name="SchedulableField">schedulable field of the selected schedule</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.SchedulableFieldName_ZTN(Revit.Elements.Views.ScheduleView)">
+            <summary>
+            Return all schedulable fields of the selected Schedule. 
+            Remove  shared or project parameter from field
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <returns name="SchedulableFieldName">schedulable field name of the selected schedule</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.ScheduledField_ZTN(Revit.Elements.Views.ScheduleView)">
+            <summary>
+            Return all selected schedulable fields of the selected Schedule. 
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <returns name="ScheduledField">scheduled Fields of selected Schedule</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.ScheduledFieldName_ZTN(Revit.Elements.Views.ScheduleView)">
+            <summary>
+            Return all selected schedulable fields of the selected Schedule. 
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <returns name="ScheduledFieldName">scheduled Field name of selected Schedule</returns> 
+        </member>
+        <member name="M:DynamoLab.Revit.Views.ScheduleView.ScheduleFields_ZTN(Revit.Elements.Views.ScheduleView)">
+            <summary>
+            Return all schedulable fields and scheduled fields of the selected Schedule. 
+            </summary>
+            <param name="dynamoSchedule">Selected Schedules.</param>
+            <returns name="SchedulableFieldName">scheduled Field name of selected Schedule</returns> 
+            <returns name="ScheduledFieldName">scheduled Field name of selected Schedule</returns> 
+        </member>
+    </members>
+</doc>
